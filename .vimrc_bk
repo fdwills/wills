@@ -144,27 +144,6 @@ endfunc
 " cp = compile ruby/perl
 map cp :call Compile()<CR>
 
-" compile template file
-func! CompileTemp()
-  " _systemからのパースを取得
-  " TODO: htmlのシアタのファイルはどうしよう？
-  let tempdir = ''
-  if (match(g:curdir, '/home/game/template/') == 0) 
-    let tempdir = substitute(g:curdir, '/home/game/template/', '', "g")
-  elseif (match(g:curdir, '/home/game/svn/game/template/') == 0)
-    " dev51
-    let tempdir = substitute(g:curdir, '/home/game/svn/game/template/', '', "g")
-  elseif (match(g:curdir, '/home/game/svn/trunk/template/') == 0)
-    " dev13
-    let tempdir = substitute(g:curdir, '/home/game/svn/trunk/template/', '', "g")
-  endif
-  "echo tempdir
-  let tail = expand("%:t")
-  exec "!compile_template --path ".tempdir. "/". tail
-endfunc
-" ch = compile html
-map ch :call CompileTemp()<CR>
-
 " ファイルのsuffix判断をすす
 func! Execute()
   let suffix=expand("%:e")
@@ -191,7 +170,7 @@ func! Debug()
   endif
 endfunc
 
-" ex = execute ruby/perl
+" db = insert db info ruby/perl
 map db :call Debug()<CR>
 
 
