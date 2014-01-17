@@ -1,0 +1,21 @@
+[user]
+  	email = renzhong.wei@dena.com
+  	name = wei.renzhong
+[diff]
+  	tool = vimdiff
+[difftool]
+  	prompt = false
+[alias]
+  	d = difftool
+  	last = log -1 HEAD
+  	graph = log --graph -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  	st = status
+  	rs = reset
+  	co = checkout
+[push]
+  	default = tracking
+[color]
+  	diff = auto
+  	status = auto
+  	branch = auto
+	ui = true
