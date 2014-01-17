@@ -30,6 +30,7 @@ alias pc="find .| grep pm$ | xargs -n 1 perl -c"
 alias gp="git log --pretty"
 alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
+alias ghome="source ~/bin/to_git_home.sh"
 
 source ~/config/.git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '

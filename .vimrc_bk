@@ -28,6 +28,12 @@ function! s:html()
   set fileencodings=cp932,utf-8
 endfunction
 
+" 文字コード指定rbファイルはcp932
+function! s:rb()
+  set encoding=utf-8
+  set fileencodings=utf-8
+endfunction
+
 " 文字コードの自動認識
 " pmファイルなど
 function! s:pm()
@@ -127,6 +133,8 @@ let tlist_sql_settings = 'sql;P:package;t:table'
 let suffix=expand("%:e")
 if (match(suffix, 'html\|sub\|tx') == 0)
   call s:html()
+elseif (match(suffix, 'rb\|js') == 0)
+  call s:rb()
 else
   call s:pm()
 endif
@@ -173,4 +181,7 @@ endfunc
 " db = insert db info ruby/perl
 map db :call Debug()<CR>
 
-
+if (match(suffix, 'js\|rb\|ruby\|haml') == 0)
+  set softtabstop=2
+  set expandtab
+endif
