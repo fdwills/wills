@@ -43,9 +43,9 @@ brew -v
 mysql --version
 
 #install bundler
-sudo rbenv exec gem install bundler
+rbenv exec gem install bundler
  
 #install rails
-sudo rbenv exec gem install rails
+rbenv exec gem install rails
 # unable to convert "\xFF" from ASCII-8BIT to UTF-8 
 # try `gem install rails --no-ri --no-rdoc` to avoid warning
