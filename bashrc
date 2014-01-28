@@ -15,9 +15,9 @@ alias v='vim'
 alias t='tree'
 alias c='cat -n'
 
-alias ls="ls --color  --show-control-chars -F"
-alias la="ls -a --color=auto"
-alias ll="ls -lh --color=auto"
+alias ls="ls -G"
+alias la="ls -a -G"
+alias ll="ls -lh -G"
 alias rm="rm -r"
 alias cp="cp -r"
 alias ps="ps -ef -W"
@@ -40,6 +40,7 @@ alias gp="git log --pretty"
 alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
 alias ghome="while [ `pwd` != '/' ]; do if [ -d ".git/" ]; then break; else cd ..; fi done"
+alias rp="config/bin/replace.sh"
 
 source ~/config/git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
