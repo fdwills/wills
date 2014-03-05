@@ -40,6 +40,7 @@ alias gp="git log --pretty"
 alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
 alias ghome="while [ `pwd` != '/' ]; do if [ -d ".git/" ]; then break; else cd ..; fi done"
+alias lst="ls -R lib | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 
 source ~/config/git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
