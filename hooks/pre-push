@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+DANGEROUS_BRANCHES = ["master", "phase2"]
+
+def dangerous_branch?
+	work_branch = `git rev-parse --abbrev-ref HEAD`.chomp!
+
+	return  DANGEROUS_BRANCHES.any? {|branch| branch == work_branch}
+end
+
+def config_allow_set?
+	allowmasterpush = `git config hooks.allowmasterpush`.chomp!
+
+	return allowmasterpush && allowmasterpush.to_s.eql?('true')
+end
+
+# if the branch is master, then fail.
+if dangerous_branch? && ! config_allow_set?
+	puts '''
+Error: Attemp to push to a dangerous branch.
+This can cause problems if you want to work
+with people on other platforms.
+If you know what you are doing you can allow this, check:
+
+git config hooks.allowmasterpush true
+
+or you can set it in .git/config
+'''
+	exit 1
+end
+
+exit 0
