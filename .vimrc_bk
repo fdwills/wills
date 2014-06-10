@@ -181,7 +181,9 @@ endfunc
 " db = insert db info ruby/perl
 map db :call Debug()<CR>
 
-if (match(suffix, 'js\|rb\|ruby\|haml') == 0)
+if (match(suffix, 'markdown\|md\|js\|rb\|ruby\|haml') == 0)
   set softtabstop=2
   set expandtab
 endif
+
+" let g:neocomplcache_enable_at_startup = 1

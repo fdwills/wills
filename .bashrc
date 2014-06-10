@@ -25,12 +25,12 @@ alias gl='git log'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias f="find ./ ! \( -name '*svn*' \) -and ! \( -name '*tmp' \) -print | xargs grep "
+alias f="find ./ \( -type f \) -and ! \( -name '*vendor*' \)  -and ! \( -name '*svn*' \) -and ! \( -name '*tmp' \) -print | xargs grep "
 alias pc="find .| grep pm$ | xargs -n 1 perl -c"
 alias gp="git log --pretty"
 alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
 alias ghome="while [ `pwd` != '/' ]; do if [ -d ".git/" ]; then break; else cd ..; fi done"
-
+alias ff="find ./ -iregex"
 source ~/config/.git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
