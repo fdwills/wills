@@ -20,7 +20,7 @@ alias la="ls -a -G"
 alias ll="ls -lh -G"
 alias rm="rm -r"
 alias cp="cp -r"
-alias ps="ps -ef -W"
+alias ps="ps aux"
 alias pp="ps -ef -W |grep"
 alias ..="cd .."
 alias cd..="cd .."
@@ -34,13 +34,18 @@ alias gl='git log'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias f="find ./ ! \( -name '*svn*' \) -and ! \( -name '*tmp' \) -print | xargs grep "
+alias f="find ./ \( -type f \) -and ! \( -name '*svn*' \) -and ! \( -name '*tmp' \) -print | xargs grep "
 alias pc="find .| grep pm$ | xargs -n 1 perl -c"
 alias gp="git log --pretty"
 alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
 alias ghome="while [ `pwd` != '/' ]; do if [ -d ".git/" ]; then break; else cd ..; fi done"
 alias rp="config/bin/replace.sh"
+alias pg="pg_ctl -D /usr/local/var/postgres/default -l /usr/local/var/postgres/default/server.log"
 
 source ~/config/git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+. ~/.strikinglyrc
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
