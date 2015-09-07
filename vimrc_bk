@@ -34,6 +34,12 @@ function! s:rb()
   set fileencodings=utf-8
 endfunction
 
+" 文字コード指定rbファイルはcp932
+function! s:md()
+  set encoding=utf-8
+  set fileencodings=utf-8
+endfunction
+
 " 文字コードの自動認識
 " pmファイルなど
 function! s:pm()
@@ -135,6 +141,8 @@ if (match(suffix, 'html\|sub\|tx') == 0)
   call s:html()
 elseif (match(suffix, 'rb\|js') == 0)
   call s:rb()
+elseif (match(suffix, 'md\|markdown') == 0)
+  call s:md()
 else
   call s:pm()
 endif
@@ -159,6 +167,12 @@ func! Execute()
     exec "!ruby %"
   elseif (match(suffix, 'pl\|pm') == 0)
     exec "!perl %"
+  elseif (match(suffix, 'py') == 0)
+    exec "!python %"
+  elseif (match(suffix, 'scala') == 0)
+    exec "!scala %"
+  elseif (match(suffix, 'go') == 0)
+    exec "!go run %"
   else
     exec "!bash %"
   endif

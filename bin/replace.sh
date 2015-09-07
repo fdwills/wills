@@ -19,6 +19,11 @@ if [ ! "$list" = "y" ]; then
 	exit 0
 fi
 find . -name \*.pm | xargs perl -pi -e "s/"$1"/"$2"/g"
+find . -name \*.c | xargs perl -pi -e "s/"$1"/"$2"/g"
+find . -name \*.h | xargs perl -pi -e "s/"$1"/"$2"/g"
+find . -name \*.cc | xargs perl -pi -e "s/"$1"/"$2"/g"
+find . -name \*.cpp | xargs perl -pi -e "s/"$1"/"$2"/g"
+find . -name \*.py | xargs perl -pi -e "s/"$1"/"$2"/g"
 find . -name \*.haml | xargs perl -pi -e "s/"$1"/"$2"/g"
 find . -name \*.html | xargs perl -pi -e "s/"$1"/"$2"/g"
 find . -name \*.sub | xargs perl -pi -e "s/"$1"/"$2"/g"

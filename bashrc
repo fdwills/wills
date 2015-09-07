@@ -41,8 +41,11 @@ alias gpo="git log --pretty=oneline"
 alias gdn="git diff --name-status"
 alias ghome="while [ `pwd` != '/' ]; do if [ -d ".git/" ]; then break; else cd ..; fi done"
 alias gt="cd ~/git/"
-alias rp="config/bin/replace.sh"
+alias rp="~/config/bin/replace.sh"
 alias pg="pg_ctl -D /usr/local/var/postgres/default -l /usr/local/var/postgres/default/server.log"
+alias draw="java -jar ~/config/bin/plantuml.jar"
+alias gw="ssh deploy@gw"
+alias gradle='/Applications/Android\ Studio.app/Contents/gradle/gradle-2.2.1/bin/gradle'
 
 source ~/config/git-completion.sh
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
